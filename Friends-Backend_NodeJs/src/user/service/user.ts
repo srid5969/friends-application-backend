@@ -7,9 +7,9 @@ export async function register(data: IUser) {
   const saveData = await Data.save();
   return saveData;
 }
-export async function get() {
+export async function getAllUsers() {
  
-  // return await ;
+  return await user.find({});
 }
 export async function bloodGroups() {
   const data = [

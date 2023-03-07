@@ -1,5 +1,5 @@
 import { Request, Response, Express } from "express";
-import { bloodGroups, register } from "../service/user";
+import { bloodGroups, getAllUsers, register } from "../service/user";
 let router: Express = require("express").Router();
 router.get("/bloodgroup", async (req: Request, res: Response) => {
     
@@ -11,6 +11,6 @@ router.post('/register',async (req: Request, res: Response) => {
 });
 router.get("/users", async (req: Request, res: Response) => {
     
-  bloodGroups().then((data) => res.send(data));
+  getAllUsers().then((data) => res.send(data));
 });
 export default router;
