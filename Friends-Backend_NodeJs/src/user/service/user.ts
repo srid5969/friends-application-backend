@@ -1,12 +1,17 @@
 import user, { IUser } from "../model/user";
 
 export async function register(data: IUser) {
+  data.dob = new Date(data.dob).toISOString();
+
   const Data = new user(data);
   const saveData = await Data.save();
   return saveData;
 }
-
-export async function bloodgroups() {
+export async function get() {
+ 
+  // return await ;
+}
+export async function bloodGroups() {
   const data = [
     "A+",
     "A-",

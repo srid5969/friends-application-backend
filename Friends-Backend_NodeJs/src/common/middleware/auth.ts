@@ -17,9 +17,7 @@ export default async function (
     `\n\n \t http://${req.hostname}:8000${originalUrl} \t ${req.method}`
   );
   console.log(req.body);
-  next()
-  // const data = ["A+", " A-", " B+", " B-", " O+", " O-", " AB+", " AB-"];
-  // return  res.send(data)
+  return next();
   // if (req.method === "DELETE") {
   //   return res.send({ message: "This api is temporary not available" });
   // }
@@ -28,18 +26,18 @@ export default async function (
   // if (username && password && originalUrl === "/api/user/login") {
   //   return next();
   // }
-  // if (req.headers.authorization) {
-  //   const token = req.headers.authorization;
-  //   const isUserAlreadyLoggedIn = await verifyToken(token);
-  //   if (isUserAlreadyLoggedIn) {
-  //     req.body.postedBy = isUserAlreadyLoggedIn;
-  //     return next();
-  //   }
-  //   return res.status(404).json({
-  //     message: "Token Not  verified",
-  //     error: "Enter through login In order to avoid inconvenience",
-  //   });
-  // }
+  if (req.headers.authorization) {
+    //   const token = req.headers.authorization;
+    //   const isUserAlreadyLoggedIn = await verifyToken(token);
+    //   if (isUserAlreadyLoggedIn) {
+    //     req.body.postedBy = isUserAlreadyLoggedIn;
+    return next();
+    //   }
+    //   return res.status(404).json({
+    //     message: "Token Not  verified",
+    //     error: "Enter through login In order to avoid inconvenience",
+    //   });
+  }
   // res.status(404).json({
   //   message: "No data found",
   //   error: "Enter through login In order to avoid inconvenience",
